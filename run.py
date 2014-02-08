@@ -42,7 +42,7 @@ if __name__ == '__main__':
 
     elif args.extract == 'routes':
         print 'Downloading routes to {}'.format(args.output)
-        """ Do something"""
+        functions.download_routes(args.output)
 
     elif args.extract == 'departures':
         print 'Downloading departures to {0} for dates {1} through {2}'.format(

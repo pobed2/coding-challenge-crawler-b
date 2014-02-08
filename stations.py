@@ -58,11 +58,9 @@ class StationCrawler:
                 latitude, longitutde = self._extract_coordinates()
 
                 station = Station(name, location, latitude, longitutde)
-                #print station
                 stations.append(station)
 
         self.driver.quit
-        print json.dumps(stations, cls=StandardEncoder)
         return stations
 
     def _pass_landing_page(self):
