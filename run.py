@@ -2,6 +2,7 @@
 # -*- coding: utf-8
 import argparse
 import datetime
+import functions
 
 
 def parse_date(s):
@@ -37,7 +38,7 @@ if __name__ == '__main__':
 
     if args.extract == 'stops':
         print 'Downloading stops to {}'.format(args.output)
-        """ Do something"""
+        functions.download_stops(args.output)
 
     elif args.extract == 'routes':
         print 'Downloading routes to {}'.format(args.output)
