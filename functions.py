@@ -2,6 +2,7 @@ import json
 import io
 from stations import StationCrawler, StandardEncoder
 from routes import RouteCrawler
+from departures import DepartureCrawler
 from selenium import webdriver
 
 def download_stops(file):
@@ -15,3 +16,9 @@ def download_routes(file):
 	crawler = RouteCrawler(driver)
 	routes = crawler.find_routes()
 	json.dump(routes, file, cls=StandardEncoder)
+
+def download_departures(file, start_date, end_date):
+	driver = webdriver.Firefox()
+	crawler = DepartureCrawler(driver)
+	departures = crawler.find_departures(start_date, end_date)
+	json.dump(departures, file, cls=StandardEncoder)

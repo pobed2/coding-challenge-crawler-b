@@ -47,4 +47,4 @@ if __name__ == '__main__':
     elif args.extract == 'departures':
         print 'Downloading departures to {0} for dates {1} through {2}'.format(
             args.output, args.startdate, args.enddate)
-        """ Do something"""
+        functions.download_departures(args.output, args.startdate, args.enddate)
