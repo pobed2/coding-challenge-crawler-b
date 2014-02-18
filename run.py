@@ -38,15 +38,19 @@ if __name__ == '__main__':
 
     if args.extract == 'stops':
         print 'Downloading stops to {}'.format(args.output)
+        start = datetime.datetime.now()
         functions.download_stops(args.output)
+        print "Finished in {} minutes".format((datetime.datetime.now() - start).total_seconds()/60)
 
     elif args.extract == 'routes':
         print 'Downloading routes to {}'.format(args.output)
+        start = datetime.datetime.now()
         functions.download_routes(args.output)
+        print "Finished in {} minutes".format((datetime.datetime.now() - start).total_seconds()/60)
 
     elif args.extract == 'departures':
         print 'Downloading departures to {0} for dates {1} through {2}'.format(
             args.output, args.startdate, args.enddate)
-        print datetime.datetime.now()
+        start = datetime.datetime.now()
         functions.download_departures(args.output, args.startdate, args.enddate)
-        print datetime.datetime.now()
+        print "Finished in {} minutes".format((datetime.datetime.now() - start).total_seconds()/60)

@@ -1,6 +1,5 @@
 import json
-
-from utils import StandardEncoder
+from json import JSONEncoder
 from drivers import PhantomJsSingleUrlNonGreedyDriver
 from crawlers.departures import DepartureCrawler
 from crawlers.route import RouteCrawler
@@ -31,3 +30,7 @@ def download_departures(file, start_date, end_date):
 def write_to_json(data, file):
     json.dump(data, file, cls=StandardEncoder)
 
+
+class StandardEncoder(JSONEncoder):
+    def default(self, o):
+        return o.to_dict()

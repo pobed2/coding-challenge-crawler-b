@@ -1,8 +1,7 @@
 from crawlers.model import Route
 
-destination_select_id = "confirm1_ddlTravellingTo"
-
 origin_select_id = "confirm1_ddlLeavingFromMap"
+destination_select_id = "confirm1_ddlTravellingTo"
 
 
 class RouteCrawler:
