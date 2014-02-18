@@ -55,7 +55,7 @@ class StopCrawler:
 
                     return Stop(name, location, latitude, longitude)
             except TimeoutException:
-                print "Timeout Exception: " + str(_)
+                print "Timeout Exception: " + str(_) + ". Retrying."
 
         print "Could not get stop. Skipping."
 

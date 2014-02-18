@@ -52,7 +52,7 @@ class RouteCrawler:
                     routes.append(route)
                 return routes
             except TimeoutException:
-                print "Timeout Exception: " + str(_)
+                print "Timeout Exception: " + str(_) + ". Retrying."
 
         print "Could not get route. Skipping."
 

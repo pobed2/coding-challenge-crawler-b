@@ -67,10 +67,12 @@ class DepartureCrawler:
                                               pretty_duration, price)
                         departures.append(departure)
 
+                        #print departure
+
                 return departures
 
             except TimeoutException, e:
-                print "Timeout Exception: " + str(_)
+                print "Timeout Exception: " + str(_) + ". Retrying."
 
         return departures
 
