@@ -12,7 +12,8 @@ class Stop:
         return u"{} {} {} {}".format(self.name, self.location, self.lat, self.long).encode('utf-8', 'ignore')
 
     def to_dict(self):
-        return dict(stop_name=self.name, stop_location=self.location, lat=self.lat, long=self.long)
+        return dict(stop_name=self.name,
+                    stop_location=self.location, lat=self.lat, long=self.long)
 
 
 class Route:

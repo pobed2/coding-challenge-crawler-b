@@ -63,6 +63,7 @@ class SingleUrlNonGreedyDriver(object):
     def _create_wait(self):
         return WebDriverWait(self.driver, 5)
 
+
 class PhantomJsSingleUrlNonGreedyDriver(SingleUrlNonGreedyDriver):
     '''
     PhantomJS WebDriver that can only manage one url.

@@ -3,7 +3,7 @@ from json import JSONEncoder
 from drivers import PhantomJsSingleUrlNonGreedyDriver
 from crawlers.departures import DepartureCrawler
 from crawlers.route import RouteCrawler
-from crawlers.station import StopCrawler
+from crawlers.stop import StopCrawler
 
 
 def download_stops(file):
@@ -28,7 +28,7 @@ def download_departures(file, start_date, end_date):
 
 
 def write_to_json(data, file):
-    json.dump(data, file, cls=StandardEncoder)
+    json.dump(data, file, cls=StandardEncoder, encoding='utf8')
 
 
 class StandardEncoder(JSONEncoder):
