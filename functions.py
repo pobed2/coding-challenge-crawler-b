@@ -1,22 +1,33 @@
 import json
-from crawler import Crawler, StandardEncoder
-from selenium import webdriver
+
+from utils import StandardEncoder
+from drivers import PhantomJsSingleUrlNonGreedyDriver
+from crawlers.departures import DepartureCrawler
+from crawlers.route import RouteCrawler
+from crawlers.station import StopCrawler
 
 
 def download_stops(file):
-    driver = webdriver.PhantomJS()
-    crawler = Crawler(driver)
-    stations = crawler.find_stations()
-    json.dump(stations, file, cls=StandardEncoder)
+    driver = PhantomJsSingleUrlNonGreedyDriver("http://ca.megabus.com/BusStops.aspx")
+    crawler = StopCrawler(driver)
+    stations = crawler.find()
+    write_to_json(stations, file)
+
 
 def download_routes(file):
-    driver = webdriver.PhantomJS()
-    crawler = Crawler(driver)
-    routes = crawler.find_routes()
-    json.dump(routes, file, cls=StandardEncoder)
+    driver = PhantomJsSingleUrlNonGreedyDriver("http://ca.megabus.com/BusStops.aspx")
+    crawler = RouteCrawler(driver)
+    routes = crawler.find()
+    write_to_json(routes, file)
+
 
 def download_departures(file, start_date, end_date):
-    driver = webdriver.Firefox()
-    crawler = Crawler(driver)
-    departures = crawler.find_departures(start_date, end_date)
-    json.dump(departures, file, cls=StandardEncoder)
+    driver = PhantomJsSingleUrlNonGreedyDriver("http://ca.megabus.com/BusStops.aspx")
+    crawler = DepartureCrawler(driver)
+    departures = crawler.find(start_date, end_date)
+    write_to_json(departures, file)
+
+
+def write_to_json(data, file):
+    json.dump(data, file, cls=StandardEncoder)
+
